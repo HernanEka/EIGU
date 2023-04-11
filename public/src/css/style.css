@@ -39,10 +39,80 @@ body {
     object-fit: cover;
 }
 
-#Login .round{
-    border-radius: 15px;
-}
 
 #Login .google{
     width: 40px;
+}
+
+.round{
+    border-radius: 15px;
+}
+
+.navbar-link{
+    color: #999999;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.navbar-link:hover{
+    color: #1363DF;
+}
+
+.navbar-link.active{
+    color: #1363DF;
+}
+
+.navbar-link.active:hover{
+    color: #174c9c;
+}
+
+.navbar-link-setting{
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.2s;
+    background-color: #c2c2c2;
+}
+
+.navbar-link-setting:hover{
+    color: #1363DF;
+}
+
+.navbar-link-setting.active{
+    color: #1363DF;
+}
+
+.navbar-link-setting.active:hover{
+    color: #174c9c;
+}
+
+.dropdown-item:hover{
+    background-color: #1363DF;
+    color: #ffffff;
+}
+
+.my-profile .card-img-top{
+    max-height: 100px;
+    object-fit: cover;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.my-profile .pics{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 100%;
+}
+
+.text-sm {
+    font-size: 14px;
+}
+
+.posting .pics{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 100%;
 }

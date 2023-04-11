@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SignUpController;
 use Illuminate\Support\Facades\Route;
@@ -15,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/signup', [SignUpController::class, 'index']);
-Route::post('/signup', [SignUpController::class, 'signup']);
+Route::get('/signup', [SignUpController::class, 'index'])->middleware('guest');
+Route::post('/signup', [SignUpController::class, 'signup'])->middleware('guest');
 
-Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
-Route::post('/login', [LoginController::class, 'login']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'login'])->middleware('guest');
 Route::get('/logout', [LoginController::class, 'logout']);
+
+Route::get('/', [LandingpageController::class, 'index'])->middleware('auth');
