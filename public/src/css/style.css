@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #E8E8E8;
+
+}
+
+/* Color Palette */
+.bg-utama {
+    background-color: #06283D;
+}
+
+.bg-biru {
+    background-color: #1363DF;
+}
+
+.bg-cyan {
+    background-color: #47B5FF;
+}
+
+.bg-biru-muda {
+    background-color: #DFF6FF;
+}
+
+.bg-krem {
+    background-color: #C3C488;
+}
+
+.bg-hijau {
+    background-color: #43C448;
+}
+
+.bg-abu {
+    background-color: #E8E8E8;
+}
+
+#Login .img-login {
+    object-fit: cover;
+}
+
+#Login .round{
+    border-radius: 15px;
+}
+
+#Login .google{
+    width: 40px;
+}
