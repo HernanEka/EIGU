@@ -27,7 +27,7 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-abu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-abu sticky-top">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <img src="{{ asset('src/img/Logo.png') }}" alt="">
