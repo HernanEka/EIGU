@@ -32,7 +32,7 @@
                             </div>
                             <hr>
                             <div class="text-center">
-                                <a href=".profile" class="text-decoration-none">My Profile</a>
+                                <a href="/profile" class="text-decoration-none">My Profile</a>
                             </div>
                         </div>
                     </div>
@@ -130,7 +130,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <div class="card round">
                         <ul class="list-group list-group-flush round">
                             <li class="list-group-item mb-0">

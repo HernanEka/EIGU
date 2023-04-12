@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SignUpController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,4 @@ Route::post('/login', [LoginController::class, 'login'])->middleware('guest');
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/', [LandingpageController::class, 'index'])->middleware('auth');
+Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
