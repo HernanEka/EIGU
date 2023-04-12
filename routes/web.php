@@ -26,3 +26,4 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/', [LandingpageController::class, 'index'])->middleware('auth');
 Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
+Route::post('/profile/update', [ProfileController::class, 'update'])->middleware('auth');

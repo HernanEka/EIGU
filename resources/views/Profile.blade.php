@@ -9,7 +9,8 @@
                         <img src="https://images.unsplash.com/photo-1614850523011-8f49ffc73908?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fGJhbm5lciUyMGJhY2tncm91bmR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
                             class="card-img-top" alt="...">
                         <div class="position-absolute top-0 end-0 m-3">
-                            <a href="#" class="btn bg-abu round"><i class="bi bi-pencil"></i></a>
+                            <button class="btn bg-abu round" data-bs-toggle="modal" data-bs-target="#UpdateProfile"><i
+                                    class="bi bi-pencil"></i></button>
                         </div>
                         <div class="position-absolute top-0 start-0 translate-middle-y"
                             style="padding-top: 300px; padding-left: 15px;">
@@ -18,10 +19,10 @@
                         <div class="card-body text-start px-4">
                             <div class="row">
                                 <div class="col" style="padding-top: 80px">
-                                    <h3 class="display-5 card-title">{{ auth()->user()->firstname }} <b
+                                    <h3 class="display-5 card-title">{{ auth()->user()->firstname.' '.auth()->user()->lastname }} <b
                                             class="text-sm fw-light text-secondary">(He/Him)</b> </h3>
                                     <p class="card-text"><b>Front End Developer</b></p>
-                                    <b class="fw-light text-sm text-secondary">Lokasi</b> <a href="#"
+                                    <b class="fw-light text-sm text-secondary">{{ auth()->user()->city.', '.auth()->user()->region }}</b> <a href="#"
                                         class="text-decoration-none">Contact Information</a><br>
                                     <p><a href="#" class="text-decoration-none mb-3">5.802 Connection</a></p>
                                     <a href="#" class="btn bg-abu round">+ Add Account</a>
@@ -110,6 +111,50 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="UpdateProfile" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="UpdateProfileLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="UpdateProfileLabel">Basic Information</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="/profile/update" method="POST">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="mb-2">
+                                <label for="firstname" class="form-label">Firstname*</label>
+                                <input type="text" name="firstname" id="firstname" class="form-control round">
+                            </div>
+                            <div class="mb-2">
+                                <label for="lastname" class="form-label">Lastname*</label>
+                                <input type="text" name="lastname" id="lastname" class="form-control round">
+                            </div>
+                            <div class="mb-2">
+                                <label for="motto" class="form-label">Professional Motto*</label>
+                                <input type="text" name="motto" id="motto" class="form-control round">
+                            </div>
+                            <h4>Location</h4>
+                            <div class="mb-2">
+                                <label for="region" class="form-label">Country/Region*</label>
+                                <input type="text" name="region" id="region" class="form-control round">
+                            </div>
+                            <div class="mb-2">
+                                <label for="city" class="form-label">City*</label>
+                                <input type="text" name="city" id="city" class="form-control round">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
