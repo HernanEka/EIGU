@@ -116,3 +116,18 @@ body {
     object-position: top;
     border-radius: 100%;
 }
+
+#Profile .card-img-top{
+    max-height: 150px;
+    object-fit: cover;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+#Profile .pics{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 100%;
+}
