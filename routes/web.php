@@ -3,6 +3,7 @@
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SignUpController;
 use Illuminate\Support\Facades\Route;
@@ -33,3 +34,6 @@ Route::get('/experience', [ExperienceController::class, 'index']);
 Route::post('/jobs', [ExperienceController::class, 'addjobs']);
 Route::post('/education', [ExperienceController::class, 'addeducation']);
 Route::post('/certification', [ExperienceController::class, 'addcertification']);
+
+Route::get('/portofolio',[PortofolioController::class, 'index']);
+Route::post('/portofolio',[PortofolioController::class, 'portofolio']);

@@ -35,6 +35,10 @@ body {
     background-color: #E8E8E8;
 }
 
+.bg-abu-2{
+    background-color: #c9c9c9;
+}
+
 #Login .img-login {
     object-fit: cover;
 }
@@ -149,4 +153,8 @@ body {
 .switch{
     background-color: #bbbbbb;
     width: 300px;
+}
+
+.button-tambah{
+    height: 300px;
 }
