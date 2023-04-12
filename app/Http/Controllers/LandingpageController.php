@@ -10,4 +10,9 @@ class LandingpageController extends Controller
     {
         return view('Landing_Page');
     }
+
+    public function detail()
+    {
+        return view('Detail_Postingan');
+    }
 }
