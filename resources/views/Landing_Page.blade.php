@@ -32,7 +32,7 @@
                             </div>
                             <hr>
                             <div class="text-center">
-                                <a href=".profile" class="text-decoration-none">My Profile</a>
+                                <a href="/profile" class="text-decoration-none">My Profile</a>
                             </div>
                         </div>
                     </div>
