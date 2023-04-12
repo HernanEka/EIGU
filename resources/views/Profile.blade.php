@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="col text-end">
                                     <div class="portofolio mb-3">
-                                        <a href="/portofolio" class="btn btn-primary round">Portofolio acces</a>
+                                        <a href="/experience" class="btn btn-primary round">Portofolio acces</a>
                                     </div>
                                     <div class="shopee">
                                         <a href="#"><img src="{{ asset('src/img/shopee-logo.png') }}" width="60"
