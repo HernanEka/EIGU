@@ -76,7 +76,7 @@
                         <i class=" fs-4 bi bi-gear"></i>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-lg-end">
-                        <li><a href="#" class="dropdown-item">Setting</a></li>
+                        <li><a href="/settings/integration" class="dropdown-item">Setting</a></li>
                         <li><a href="/logout" class="dropdown-item">Logout</a></li>
                     </ul>
                 </div>

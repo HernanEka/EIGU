@@ -29,7 +29,7 @@
                     @yield('konten')
                 </div>
                 <div class="col-md-7 overflow-hidden">
-                    <img src="{{ asset('src/img/blabluble.png') }}" class="img-fuild" alt="...">
+                    <img src="{{ asset('src/img/blabluble.png') }}" class="img-fuild w-100 " alt="...">
                 </div>
             </div>
         </div>

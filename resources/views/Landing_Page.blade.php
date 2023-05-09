@@ -111,26 +111,31 @@
                                         dolores nihil eaque odit quas! Fugit, amet repellat.</p>
                                     <img src="{{ asset('src/img/Rectangle 96.png') }}" class="img-fluid mb-2"
                                         alt="">
-                                    <div class="row text-center">
-                                        <div class="col round mx-2 border p-1">
-                                            <i class="bi bi-hand-thumbs-up text-primary"></i><i
-                                                class="text-sm fst-normal">Like</i>
-                                        </div>
-                                        <div class="col round mx-2 border p-1">
-                                            <i class="bi bi-chat-text text-primary"></i><i
-                                                class="text-sm fst-normal">Comment</i>
-                                        </div>
-                                        <div class="col round mx-2 border p-1">
-                                            <i class="bi bi-arrow-repeat text-primary"></i><i
-                                                class="text-sm fst-normal">Share</i>
-                                        </div>
-                                        <div class="col round mx-2 border p-1">
-                                            <i class="bi bi-send text-primary"></i><i class="text-sm fst-normal">Send</i>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </a>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col">
+                                <div class="row text-center">
+                                    <div class="col round mx-2 border p-1 tombol">
+                                        <i class="bi bi-hand-thumbs-up"></i><i
+                                            class="text-sm fst-normal">Like</i>
+                                    </div>
+                                    <div class="col round mx-2 border p-1 tombol">
+                                        <i class="bi bi-chat-text"></i><i
+                                            class="text-sm fst-normal">Comment</i>
+                                    </div>
+                                    <div class="col round mx-2 border p-1 tombol">
+                                        <i class="bi bi-arrow-repeat"></i><i
+                                            class="text-sm fst-normal">Share</i>
+                                    </div>
+                                    <div class="col round mx-2 border p-1 tombol">
+                                        <i class="bi bi-send"></i><i class="text-sm fst-normal">Send</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

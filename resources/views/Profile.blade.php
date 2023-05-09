@@ -17,15 +17,20 @@
                             <img src="{{ asset('src/img/contoh.jpg') }}" class="pics" alt="">
                         </div>
                         <div class="card-body text-start px-4">
-                            <div class="row">
+                            <div class="row mb-3">
                                 <div class="col" style="padding-top: 80px">
-                                    <h3 class="display-5 card-title">{{ auth()->user()->firstname.' '.auth()->user()->lastname }} <b
+                                    <h3 class="display-5 card-title">
+                                        {{ auth()->user()->firstname . ' ' . auth()->user()->lastname }} <b
                                             class="text-sm fw-light text-secondary">(He/Him)</b> </h3>
                                     <p class="card-text"><b>Front End Developer</b></p>
-                                    <b class="fw-light text-sm text-secondary">{{ auth()->user()->city.', '.auth()->user()->region }}</b> <a href="#"
-                                        class="text-decoration-none">Contact Information</a><br>
+                                    <b
+                                        class="fw-light text-sm text-secondary">{{ auth()->user()->city . ', ' . auth()->user()->region }}</b>
+                                    <a href="#" class="text-decoration-none">Contact Information</a><br>
                                     <p><a href="#" class="text-decoration-none mb-3">5.802 Connection</a></p>
-                                    <a href="#" class="btn bg-abu round">+ Add Account</a>
+                                    @if ($integration->dribbble != 'None')
+                                        <a href="/settings/integration" class="btn bg-abu round">+ Add Account</a>
+                                    @endif
+                                    <a href="/settings/integration" class="btn bg-abu round">+ Add Account</a>
                                 </div>
                                 <div class="col text-end">
                                     <div class="portofolio mb-3">

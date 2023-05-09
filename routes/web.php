@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ExperienceController;
+use App\Http\Controllers\IntegrationController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PortofolioController;
@@ -40,3 +41,7 @@ Route::post('/certification', [ExperienceController::class, 'addcertification'])
 
 Route::get('/portofolio',[PortofolioController::class, 'index']);
 Route::post('/portofolio',[PortofolioController::class, 'portofolio']);
+
+Route::get('/settings/integration', [IntegrationController::class, 'index'])->middleware('auth');
+Route::post('/integration/dribbble', [IntegrationController::class, 'dribbble'])->middleware('auth');
+Route::get('/integration/dribbble/uncheck', [IntegrationController::class, 'dribbbleuncheck'])->middleware('auth');
