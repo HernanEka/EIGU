@@ -45,3 +45,5 @@ Route::post('/portofolio',[PortofolioController::class, 'portofolio']);
 Route::get('/settings/integration', [IntegrationController::class, 'index'])->middleware('auth');
 Route::post('/integration/dribbble', [IntegrationController::class, 'dribbble'])->middleware('auth');
 Route::get('/integration/dribbble/uncheck', [IntegrationController::class, 'dribbbleuncheck'])->middleware('auth');
+Route::post('/integration/behance', [IntegrationController::class, 'behance'])->middleware('auth');
+Route::get('/integration/behance/uncheck', [IntegrationController::class, 'behanceuncheck'])->middleware('auth');

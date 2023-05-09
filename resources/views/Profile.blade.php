@@ -28,7 +28,10 @@
                                     <a href="#" class="text-decoration-none">Contact Information</a><br>
                                     <p><a href="#" class="text-decoration-none mb-3">5.802 Connection</a></p>
                                     @if ($integration->dribbble != 'None')
-                                        <a href="/settings/integration" class="btn bg-abu round">+ Add Account</a>
+                                        <a href="https://dribbble.com/{{ $integration->dribbble }}" target="_blank" class="btn bg-abu round me-2">+ Add Account</a>
+                                    @endif
+                                    @if ($integration->behance != 'None')
+                                        <a href="https://behance.net/{{ $integration->behance }}" target="_blank" class="btn bg-abu round me-2">+ Add Account</a>
                                     @endif
                                     <a href="/settings/integration" class="btn bg-abu round">+ Add Account</a>
                                 </div>
