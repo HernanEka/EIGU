@@ -48,4 +48,22 @@ class IntegrationController extends Controller
         $integration->save();
         return back();
     }
+
+    public function github(Request $request)
+    {
+        $integration = Integration::where('user_id','=',auth()->user()->id)->first();
+
+        $integration->github = $request->username;
+        $integration->save();
+        return back();
+    }
+
+    public function githubuncheck()
+    {
+        $integration = Integration::where('user_id','=',auth()->user()->id)->first();
+
+        $integration->github = 'None';
+        $integration->save();
+        return back();
+    }
 }

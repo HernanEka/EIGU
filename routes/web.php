@@ -47,3 +47,5 @@ Route::post('/integration/dribbble', [IntegrationController::class, 'dribbble'])
 Route::get('/integration/dribbble/uncheck', [IntegrationController::class, 'dribbbleuncheck'])->middleware('auth');
 Route::post('/integration/behance', [IntegrationController::class, 'behance'])->middleware('auth');
 Route::get('/integration/behance/uncheck', [IntegrationController::class, 'behanceuncheck'])->middleware('auth');
+Route::post('/integration/github', [IntegrationController::class, 'github'])->middleware('auth');
+Route::get('/integration/github/uncheck', [IntegrationController::class, 'githubuncheck'])->middleware('auth');
