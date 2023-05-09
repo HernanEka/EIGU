@@ -30,4 +30,22 @@ class IntegrationController extends Controller
         $integration->save();
         return back();
     }
+
+    public function behance(Request $request)
+    {
+        $integration = Integration::where('user_id','=',auth()->user()->id)->first();
+
+        $integration->behance = $request->username;
+        $integration->save();
+        return back();
+    }
+
+    public function behanceuncheck()
+    {
+        $integration = Integration::where('user_id','=',auth()->user()->id)->first();
+
+        $integration->behance = 'None';
+        $integration->save();
+        return back();
+    }
 }

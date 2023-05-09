@@ -34,9 +34,91 @@
                                 interaktif. </p>
                         </div>
                         <div class="card-footer d-flex align-items-center">
-                            <a href="#" class="btn bg-white border text-sm">View Integration</a>
-                            <div class="form-check form-switch ms-2">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+
+
+                            <!-- Button trigger modal -->
+
+                            @if ($integration->behance != 'None')
+                                <a href="https://www.behance.net/{{ $integration->behance }}" target="_blank"
+                                    class="btn bg-white border text-sm ">View Integration</a>
+                                <div class="form-check form-switch ms-4">
+                                    <input class="form-check-input" type="checkbox" id="behancecheck" data-bs-toggle="modal"
+                                        data-bs-target="#behanceintegrationuncheck" checked>
+                                </div>
+                            @else
+                                <a href="#" class="btn bg-white border text-sm ">View Integration</a>
+                                <div class="form-check form-switch ms-4">
+                                    <input class="form-check-input" type="checkbox" id="behancecheck" data-bs-toggle="modal"
+                                        data-bs-target="#behanceintegration">
+                                </div>
+                            @endif
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="behanceintegration" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="behanceintegrationLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="behanceintegrationLabel">Integration with
+                                    behance</h5>
+                                <label for="behancecheck" class="btn-close" onclick="" data-bs-dismiss="modal"
+                                    aria-label="Close">
+                                </label>
+
+                            </div>
+                            <div class="modal-body text-center">
+                                <img src="{{ asset('src/img/behance.png') }}" alt="" width="200">
+                                <form action="/integration/behance" method="post">
+                                    @csrf
+                                    <div class="">
+                                        <label for="username" class="form-label"></label>
+                                        <input type="text" name="username" id="username" class="form-control p-3 round"
+                                            placeholder="Username">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label"></label>
+                                        <input type="password" name="password" id="password" class="form-control p-3 round"
+                                            placeholder="Password">
+                                    </div>
+
+                                    <button type="submit"
+                                        class="btn round bg-utama p-4 text-center text-white w-100 fw-bold">Log
+                                        in</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="behanceintegrationuncheck" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="behanceintegrationLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="behanceintegrationLabel">Integration with
+                                    behance</h5>
+                                <label for="behancecheck" class="btn-close" onclick="" data-bs-dismiss="modal"
+                                    aria-label="Close">
+                                </label>
+
+                            </div>
+                            <div class="modal-body text-center">
+                                <h2 class="mb-5">Apakah anda yakin?</h2>
+                                <div class="row">
+                                    <div class="col">
+                                        <a href="/integration/behance/uncheck" class="btn btn-warning">Yakin</a>
+                                    </div>
+                                    <div class="col">
+                                        <label for="behancecheck" class="btn btn-secondary" onclick=""
+                                            data-bs-dismiss="modal" aria-label="Close">Tidak
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -66,14 +148,14 @@
                                 <a href="https://dribbble.com/{{ $integration->dribbble }}" target="_blank"
                                     class="btn bg-white border text-sm ">View Integration</a>
                                 <div class="form-check form-switch ms-4">
-                                    <input class="form-check-input" type="checkbox" id="dribblecheck" data-bs-toggle="modal"
-                                        data-bs-target="#dribbleintegrationuncheck" checked>
+                                    <input class="form-check-input" type="checkbox" id="dribblecheck"
+                                        data-bs-toggle="modal" data-bs-target="#dribbleintegrationuncheck" checked>
                                 </div>
                             @else
                                 <a href="#" class="btn bg-white border text-sm ">View Integration</a>
                                 <div class="form-check form-switch ms-4">
-                                    <input class="form-check-input" type="checkbox" id="dribblecheck" data-bs-toggle="modal"
-                                        data-bs-target="#dribbleintegration">
+                                    <input class="form-check-input" type="checkbox" id="dribblecheck"
+                                        data-bs-toggle="modal" data-bs-target="#dribbleintegration">
                                 </div>
                             @endif
 
@@ -101,8 +183,8 @@
                                     @csrf
                                     <div class="">
                                         <label for="username" class="form-label"></label>
-                                        <input type="text" name="username" id="username" class="form-control p-3 round"
-                                            placeholder="Username">
+                                        <input type="text" name="username" id="username"
+                                            class="form-control p-3 round" placeholder="Username">
                                     </div>
                                     <div class="mb-3">
                                         <label for="password" class="form-label"></label>
