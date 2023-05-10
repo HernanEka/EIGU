@@ -240,7 +240,7 @@
                                     <p>Supercharge</p>
                                 </div>
                                 <div class="col">
-                                    <img src="{{ asset('src/img/github.png') }}" alt="" width="60">
+                                    <img src="{{ asset('src/img/github-mark.png') }}" alt="" width="60">
                                 </div>
                             </div>
                             <p class="card-text text-sm">layanan hos web bersama untuk proyek pengembangan perangkat lunak.

@@ -59,7 +59,7 @@
                                 </form>
                             </div>
                             <h6 class="fw-bold">Connection</h6>
-                            <a href="#" class="text-decoration-none text-dark">
+                            <a href="/messaging/admin" class="text-decoration-none text-dark">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <img src="{{ asset('src/img/mail.png') }}" alt="" class="icon">
@@ -91,26 +91,28 @@
                                         @endif
                                     @endforeach
                                 @endif
+
+                                @if ($connect->user_id_1 != auth()->user()->id)
+                                    @foreach ($user as $users)
+                                        @if ($users->id == $connect->user_id_1)
+                                            <a href="/messaging/user/{{ $users->id }}"
+                                                class="text-decoration-none text-dark">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <img src="{{ asset('src/img/contoh.jpg') }}" alt=""
+                                                            class="chat-icon">
+                                                    </div>
+                                                    <div class="col">
+                                                        <b
+                                                            class="fw-bold">{{ $users->firstname . ' ' . $users->lastname }}</b>
+                                                        <p>Developer</p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        @endif
+                                    @endforeach
+                                @endif
                             @endforeach
-                            @if ($connect->user_id_1 != auth()->user()->id)
-                                @foreach ($user as $users)
-                                    @if ($users->id == $connect->user_id_1)
-                                        <a href="/messaging/user/{{ $users->id }}"
-                                            class="text-decoration-none text-dark">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <img src="{{ asset('src/img/contoh.jpg') }}" alt=""
-                                                        class="chat-icon">
-                                                </div>
-                                                <div class="col">
-                                                    <b class="fw-bold">{{ $users->firstname . ' ' . $users->lastname }}</b>
-                                                    <p>Developer</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    @endif
-                                @endforeach
-                            @endif
                         </div>
                         <div class="col">
                             @if (Request::is('messaging/admin'))
