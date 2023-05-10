@@ -5,6 +5,7 @@ use App\Http\Controllers\IntegrationController;
 use App\Http\Controllers\KoneksiController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PekerjaanController;
 use App\Http\Controllers\PesanController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ProfileController;
@@ -43,6 +44,8 @@ Route::post('/certification', [ExperienceController::class, 'addcertification'])
 
 Route::get('/portofolio',[PortofolioController::class, 'index'])->middleware('auth');
 Route::post('/portofolio',[PortofolioController::class, 'portofolio'])->middleware('auth');
+
+Route::get('/pekerjaan',[PekerjaanController::class, 'index']);
 
 Route::get('/messaging/admin',[PesanController::class, 'index'])->middleware('auth');
 Route::get('/messaging/user/{id}',[PesanController::class, 'user'])->middleware('auth');

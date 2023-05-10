@@ -61,7 +61,7 @@
                         </a>
                     </li>
                     <li class="nav-item px-3 text-center">
-                        <a class="navbar-link {{ Request::is('job*') ? 'active' : '' }}"" aria-current="page" href="#">
+                        <a class="navbar-link {{ Request::is('pekerjaan*') ? 'active' : '' }}"" aria-current="page" href="/pekerjaan">
                             <i class="fs-5 bi bi-bag"></i><br>Job
                         </a>
                     </li>
