@@ -4,6 +4,7 @@ use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\IntegrationController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PesanController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SignUpController;
@@ -34,13 +35,16 @@ Route::get('/postingan/detail', [LandingpageController::class, 'detail'])->middl
 Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
 Route::post('/profile/update', [ProfileController::class, 'update'])->middleware('auth');
 
-Route::get('/experience', [ExperienceController::class, 'index']);
-Route::post('/jobs', [ExperienceController::class, 'addjobs']);
-Route::post('/education', [ExperienceController::class, 'addeducation']);
-Route::post('/certification', [ExperienceController::class, 'addcertification']);
+Route::get('/experience', [ExperienceController::class, 'index'])->middleware('auth');
+Route::post('/jobs', [ExperienceController::class, 'addjobs'])->middleware('auth');
+Route::post('/education', [ExperienceController::class, 'addeducation'])->middleware('auth');
+Route::post('/certification', [ExperienceController::class, 'addcertification'])->middleware('auth');
 
-Route::get('/portofolio',[PortofolioController::class, 'index']);
-Route::post('/portofolio',[PortofolioController::class, 'portofolio']);
+Route::get('/portofolio',[PortofolioController::class, 'index'])->middleware('auth');
+Route::post('/portofolio',[PortofolioController::class, 'portofolio'])->middleware('auth');
+
+Route::get('/messaging/admin',[PesanController::class, 'index'])->middleware('auth');
+Route::post('/admin/send',[PesanController::class, 'toadmin'])->middleware('auth');
 
 Route::get('/settings/integration', [IntegrationController::class, 'index'])->middleware('auth');
 Route::post('/integration/dribbble', [IntegrationController::class, 'dribbble'])->middleware('auth');
