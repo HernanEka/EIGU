@@ -58,7 +58,7 @@
                     </li>
                     <li class="nav-item px-3 text-center">
                         <a class="navbar-link {{ Request::is('network*') ? 'active' : '' }}"" aria-current="page"
-                            href="#">
+                            href="/network">
                             <i class="fs-5 bi bi-people"></i><br>Network
                         </a>
                     </li>
