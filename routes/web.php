@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\IntegrationController;
+use App\Http\Controllers\KoneksiController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PesanController;
@@ -44,7 +45,10 @@ Route::get('/portofolio',[PortofolioController::class, 'index'])->middleware('au
 Route::post('/portofolio',[PortofolioController::class, 'portofolio'])->middleware('auth');
 
 Route::get('/messaging/admin',[PesanController::class, 'index'])->middleware('auth');
+Route::get('/messaging/user/{id}',[PesanController::class, 'user'])->middleware('auth');
 Route::post('/admin/send',[PesanController::class, 'toadmin'])->middleware('auth');
+Route::post('/user/send/{id}',[PesanController::class, 'touser'])->middleware('auth');
+Route::post('/messaging/start', [KoneksiController::class, 'buatkoneksi'])->middleware('auth');
 
 Route::get('/settings/integration', [IntegrationController::class, 'index'])->middleware('auth');
 Route::post('/integration/dribbble', [IntegrationController::class, 'dribbble'])->middleware('auth');
