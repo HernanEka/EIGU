@@ -63,3 +63,4 @@ Route::post('/integration/github', [IntegrationController::class, 'github'])->mi
 Route::get('/integration/github/uncheck', [IntegrationController::class, 'githubuncheck'])->middleware('auth');
 
 Route::get('/settings/privacy',[SettingsController::class, 'privacy'])->middleware('auth');
+Route::get('/settings/security',[SettingsController::class, 'security'])->middleware('auth');

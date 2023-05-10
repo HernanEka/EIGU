@@ -2,7 +2,7 @@
 
 @section('konten')
     <section id="Settings">
-        <div class="container p-3 bg-white my-5 rounded">
+        <div class="container p-5 bg-white my-5 rounded">
             <h1 class="fw-bold">Settings</h1>
             <p>Supercharge your workflow and connect the tool you use everyday</p>
             <div class=" mb-5 round" style="background-color: #bbbbbb">
