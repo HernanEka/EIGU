@@ -91,11 +91,11 @@
 
     @yield('konten')
 
-    <nav class="navbar fixed-bottom">
+    {{-- <nav class="navbar fixed-bottom">
         <div class="w-100 text-end m-5 p-5">
             <img src="{{ asset('src/img/bell.png') }}" alt="" width="20">
         </div>
-    </nav>
+    </nav> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
