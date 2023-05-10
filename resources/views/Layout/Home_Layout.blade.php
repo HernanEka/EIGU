@@ -93,7 +93,7 @@
 
     <nav class="navbar fixed-bottom">
         <div class="w-100 text-end m-5 p-5">
-            <img src="{{ asset('src/img/bell.png') }}" alt="" width="50">
+            <img src="{{ asset('src/img/bell.png') }}" alt="" width="20">
         </div>
     </nav>
 
