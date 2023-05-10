@@ -9,6 +9,7 @@ use App\Http\Controllers\PekerjaanController;
 use App\Http\Controllers\PesanController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SignUpController;
 use Illuminate\Support\Facades\Route;
 
@@ -60,3 +61,5 @@ Route::post('/integration/behance', [IntegrationController::class, 'behance'])->
 Route::get('/integration/behance/uncheck', [IntegrationController::class, 'behanceuncheck'])->middleware('auth');
 Route::post('/integration/github', [IntegrationController::class, 'github'])->middleware('auth');
 Route::get('/integration/github/uncheck', [IntegrationController::class, 'githubuncheck'])->middleware('auth');
+
+Route::get('/settings/privacy',[SettingsController::class, 'privacy'])->middleware('auth');
