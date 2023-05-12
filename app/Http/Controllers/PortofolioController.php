@@ -22,7 +22,7 @@ class PortofolioController extends Controller
 
         $porto = new Portofolio();
 
-        $path = public_path() . '/upload/portofolio/' . auth()->user()->nama;
+        $path = public_path() . '/upload/portofolio/';
         File::makeDirectory($path, $mode = 0777, true, true);
 
         $foto = $request->foto->getClientOriginalName() . '-' . time() . '- Portofolio -'

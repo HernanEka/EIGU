@@ -174,3 +174,7 @@ body {
     object-position: top;
     border-radius: 100%;
 }
+
+.posting-btn:hover{
+    background-color: #E8E8E8;
+}

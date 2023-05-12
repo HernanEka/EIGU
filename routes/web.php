@@ -9,6 +9,7 @@ use App\Http\Controllers\NetworkController;
 use App\Http\Controllers\PekerjaanController;
 use App\Http\Controllers\PesanController;
 use App\Http\Controllers\PortofolioController;
+use App\Http\Controllers\PostinganController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SignUpController;
@@ -33,7 +34,8 @@ Route::post('/login', [LoginController::class, 'login'])->middleware('guest');
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/', [LandingpageController::class, 'index'])->middleware('auth');
-Route::get('/postingan/detail', [LandingpageController::class, 'detail'])->middleware('auth');
+Route::post('/posting', [PostinganController::class, 'posting'])->middleware('auth');
+Route::get('/postingan/detail/{id}', [LandingpageController::class, 'detail'])->middleware('auth');
 
 
 Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');

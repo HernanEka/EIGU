@@ -15,9 +15,9 @@
                             <img src="{{ asset('src/img/contoh.jpg') }}" class="pics" alt="">
                         </div>
                         <div class="card-body text-center" style="padding-top: 50px">
-                            <h3 class="card-title">{{ $user->firstname }}</h3>
+                            <h3 class="card-title">{{ auth()->user()->firstname.' '.auth()->user()->lastname }}</h3>
                             <p class="card-text text-sm text-secondary">
-                                {{ '@' . substr($user->email, 0, strrpos($user->email, '@')) }} </p>
+                                {{ '@' . substr(auth()->user()->email, 0, strrpos(auth()->user()->email, '@')) }} </p>
                             <p>Front End Developer</p>
                             <hr>
                             <div class="row">

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('motto')->nullable();
             $table->string('region')->nullable();
             $table->string('city')->nullable();
+            $table->string('role')->default('User');
             $table->rememberToken();
             $table->timestamps();
         });

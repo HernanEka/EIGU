@@ -48,17 +48,38 @@
                             </div>
                         </div>
 
-                        @for ($i = 0; $i < 3; $i++)
-                            <div class="row posting">
-                                <div class="col-md-3">
-                                    <img src="{{ asset('src/img/contoh.jpg') }}" class="pics" alt="">
-                                </div>
-                                <div class="col">
-                                    <h6>Dummy Person</h6>
-                                    <p class="text-sm text-secondary">Dummy Pekerjaan</p>
-                                </div>
-                            </div>
-                        @endfor
+                        @foreach ($connect as $koneksi)
+                            @if ($koneksi->user_id_1 == auth()->user()->id)
+                                @foreach ($user as $users)
+                                    @if ($users->id == $koneksi->user_id_2)
+                                        <div class="row posting">
+                                            <div class="col-md-3">
+                                                <img src="{{ asset('src/img/contoh.jpg') }}" class="pics" alt="">
+                                            </div>
+                                            <div class="col">
+                                                <h6>{{ $users->firstname . ' ' . $users->lastname }}</h6>
+                                                <p class="text-sm text-secondary">Front End Developer</p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endif
+                            @if ($koneksi->user_id_2 == auth()->user()->id)
+                                @foreach ($user as $users)
+                                    @if ($users->id == $koneksi->user_id_1)
+                                        <div class="row posting">
+                                            <div class="col-md-3">
+                                                <img src="{{ asset('src/img/contoh.jpg') }}" class="pics" alt="">
+                                            </div>
+                                            <div class="col">
+                                                <h6>{{ $users->firstname . ' ' . $users->lastname }}</h6>
+                                                <p class="text-sm text-secondary">UI/UX Designer</p>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endif
+                        @endforeach
                     </div>
                 </div>
 
@@ -72,71 +93,105 @@
                                 <img src="{{ asset('src/img/contoh.jpg') }}" class="pics" alt="">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control mb-2 bg-abu border-0"
-                                    placeholder="What's happening?">
-                                <div class="row g-3 px-3 text-center">
-                                    <div class="col round mx-2 border p-1">
-                                        <img src="{{ asset('src/img/photo.png') }}" width="30" alt=""> <i
-                                            class="text-sm fst-normal">Photo</i>
+                                <form action="/posting" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="text" id="Posting" name="posting"
+                                        class="form-control mb-2 bg-abu border-0" placeholder="What's happening?">
+                                    <div class="row g-3 px-3 text-center">
+                                        <div class="col round mx-2 border posting-btn p-1">
+                                            <label for="foto">
+                                                <img src="{{ asset('src/img/photo.png') }}" width="30" alt="">
+                                                <i class="text-sm fst-normal">Photo</i>
+                                            </label>
+                                            <input type="file" id="foto" name="foto" hidden accept="image/*">
+                                        </div>
+                                        <div class="col round mx-2 posting-btn border p-1">
+                                            <label for="video">
+                                                <img src="{{ asset('src/img/video.png') }}" width="30" alt="">
+                                                <i class="text-sm fst-normal">Video</i>
+                                            </label>
+                                            <input type="file" id="video" name="video" accept="video/*" hidden>
+                                        </div>
+                                        <div class="col round mx-2 border posting-btn p-1">
+                                            <label for="thread">
+                                                <img src="{{ asset('src/img/thread.png') }}" width="30" alt="">
+                                                <i class="text-sm fst-normal">Thread</i>
+                                            </label>
+                                            <input type="file" name="thread" accept=".doc, .docx, .pdf" id="thread"
+                                                hidden>
+                                        </div>
+                                        <button type="submit" class="col round mx-2 border text-center btn btn-primary">
+                                            Post
+                                        </button>
+                                        {{-- <div class="col round mx-2 border text-center btn btn-primary">
+                                            <i class="text-sm fst-normal">Schedule</i>
+                                        </div> --}}
                                     </div>
-                                    <div class="col round mx-2 border p-1">
-                                        <img src="{{ asset('src/img/video.png') }}" width="30" alt=""> <i
-                                            class="text-sm fst-normal">Video</i>
-                                    </div>
-                                    <div class="col round mx-2 border p-1">
-                                        <img src="{{ asset('src/img/thread.png') }}" width="30" alt=""> <i
-                                            class="text-sm fst-normal">Thread</i>
-                                    </div>
-                                    <div class="col round mx-2 border p-1">
-                                        <img src="{{ asset('src/img/calendar.png') }}" width="30" alt=""> <i
-                                            class="text-sm fst-normal">Schedule</i>
-                                    </div>
-                                </div>
+
+                                    <button type="submit" hidden id="submitBtn">Kirim</button>
+                                </form>
                             </div>
                         </div>
                     </div>
 
                     <!-- Daftar Postingan -->
-                    <div class="posting bg-white p-3 round">
-                        <a href="/postingan/detail" class="text-decoration-none text-dark">
+                    @foreach ($postingan as $data)
+                        <div class="posting bg-white p-3 mb-4 round">
                             <div class="row">
                                 <div class="col-md-1 me-3">
-                                    <img src="{{ asset('src/img/contoh.jpg') }}" class="pics" alt="">
+                                    <a href="/profile/{{ $data->user_id }}" class="text-decoration-none text-dark">
+                                        <img src="{{ asset('src/img/contoh.jpg') }}" class="pics" alt="">
+                                    </a>
                                 </div>
                                 <div class="col">
-                                    <h3 class="mb-2">Alif Fajar Maulana</h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, rerum numquam quis
-                                        quaerat
-                                        hic officia deleniti accusantium voluptatem similique, soluta, voluptatum architecto
-                                        dolores nihil eaque odit quas! Fugit, amet repellat.</p>
-                                    <img src="{{ asset('src/img/Rectangle 96.png') }}" class="img-fluid mb-2"
-                                        alt="">
+                                    <a href="/profile/1" class="text-decoration-none text-dark">
+                                        <h3 class="mb-2">
+                                            @foreach ($user as $users)
+                                                @if ($users->id == $data->user_id)
+                                                    {{ $users->firstname . ' ' . $users->lastname }}
+                                                @endif
+                                            @endforeach
+                                        </h3>
+                                    </a>
+                                    <p>{{ $data->postingan }}</p>
+                                    @if ($data->foto)
+                                        <img src="{{ asset('upload/postingan/foto/' . $data->foto) }}"
+                                            class="img-fluid mb-2" alt="">
+                                    @elseif ($data->video)
+                                        <iframe width="560" height="315"
+                                            src="{{ asset('upload/postingan/video/' . $data->video) }}"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowfullscreen></iframe>
+                                    @endif
+                                </div>
+                                <div class="text-end">
+                                    <a href="/postingan/detail/{{ $data->id }}" class=" text-dark">
+                                        <p>Read More ...</p>
+                                    </a>
                                 </div>
                             </div>
-                        </a>
-                        <div class="row">
-                            <div class="col-md-1"></div>
-                            <div class="col">
-                                <div class="row text-center">
-                                    <div class="col round mx-2 border p-1 tombol">
-                                        <i class="bi bi-hand-thumbs-up"></i><i
-                                            class="text-sm fst-normal">Like</i>
-                                    </div>
-                                    <div class="col round mx-2 border p-1 tombol">
-                                        <i class="bi bi-chat-text"></i><i
-                                            class="text-sm fst-normal">Comment</i>
-                                    </div>
-                                    <div class="col round mx-2 border p-1 tombol">
-                                        <i class="bi bi-arrow-repeat"></i><i
-                                            class="text-sm fst-normal">Share</i>
-                                    </div>
-                                    <div class="col round mx-2 border p-1 tombol">
-                                        <i class="bi bi-send"></i><i class="text-sm fst-normal">Send</i>
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <div class="col">
+                                    <div class="row text-center">
+                                        <div class="col round mx-2 border p-1 tombol">
+                                            <i class="bi bi-hand-thumbs-up"></i><i class="text-sm fst-normal">Like</i>
+                                        </div>
+                                        <div class="col round mx-2 border p-1 tombol">
+                                            <i class="bi bi-chat-text"></i><i class="text-sm fst-normal">Comment</i>
+                                        </div>
+                                        <div class="col round mx-2 border p-1 tombol">
+                                            <i class="bi bi-arrow-repeat"></i><i class="text-sm fst-normal">Share</i>
+                                        </div>
+                                        <div class="col round mx-2 border p-1 tombol">
+                                            <i class="bi bi-send"></i><i class="text-sm fst-normal">Send</i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
 
                 <div class="col-md-3">
@@ -165,4 +220,14 @@
             </div>
         </div>
     </section>
+
+    <script>
+        var input = document.getElementById("Posting");
+        input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("submitBtn").click();
+            }
+        });
+    </script>
 @endsection
