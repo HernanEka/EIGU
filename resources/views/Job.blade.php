@@ -66,41 +66,36 @@
                 <div class="col bg-white p-4 round">
                     <h4>Recomendation for you</h4>
                     <div class="accordion accordion-flush border" id="accordionFlushExample">
-                        @for ($i = 0; $i < 2; $i++)
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-heading{{ $i }}">
+                        @foreach($jobs as $job)
+                            <div class="accordion-item border">
+                                <h2 class="accordion-header" id="flush-heading{{ $job->id }}">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#flush-collapse{{ $i }}" aria-expanded="false"
-                                        aria-controls="flush-collapse{{ $i }}">
+                                        data-bs-target="#flush-collapse{{ $job->id }}" aria-expanded="false"
+                                        aria-controls="flush-collapse{{ $job->id }}">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <img src="{{ asset('src/img/tiket.png') }}" alt="" width="50">
+                                                <img src="{{ asset('upload/job/logo/'.$job->logo) }}" alt="" width="50">
                                             </div>
                                             <div class="col">
-                                                <b>Tiket.com</b>
-                                                <p class="text-sm">UI / UX Designer <br>Jakarta, Indonesia</p>
+                                                <b>{{ $job->company }}</b>
+                                                <p class="text-sm">{{ $job->title }} <br>{{ \Carbon\Carbon::parse($job->startdate)->format('j F Y') }}  - {{ \Carbon\Carbon::parse($job->enddate  )->format('j F Y') }}</p>
                                             </div>
                                         </div>
                                     </button>
                                 </h2>
-                                <div id="flush-collapse{{ $i }}" class="accordion-collapse collapse"
-                                    aria-labelledby="flush-heading{{ $i }}" data-bs-parent="#accordionFlushExample">
+                                <div id="flush-collapse{{ $job->id }}" class="accordion-collapse collapse"
+                                    aria-labelledby="flush-heading{{ $job->id }}"
+                                    data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero veniam minima
-                                            cupiditate aliquam ipsa aspernatur beatae doloribus doloremque ratione alias,
-                                            dicta
-                                            provident quo consectetur natus quas tempore. Rerum, repellat unde similique
-                                            ratione
-                                            rem, eaque voluptates voluptatem molestias voluptate nisi odio fugiat officiis,
-                                            dicta eligendi labore dolorem vero ipsum sunt obcaecati?
+                                            {{ $job->deskripsi }}
                                         </p>
 
-                                        <a href="https://www.tiket.com/" target="_blank" class="btn btn-primary">Apply</a>
+                                        <a href="{{ $job->link }}" target="_blank" class="btn btn-primary">Apply</a>
                                     </div>
                                 </div>
                             </div>
-                        @endfor
+                        @endforeach
                     </div>
                 </div>
 

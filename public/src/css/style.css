@@ -178,3 +178,11 @@ body {
 .posting-btn:hover{
     background-color: #E8E8E8;
 }
+
+.posting-btn.active{
+    background-color: #E8E8E8;
+}
+
+.posting-btn.active:hover{
+    background-color: #b8b6b6;
+}

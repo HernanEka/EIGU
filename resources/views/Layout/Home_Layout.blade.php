@@ -49,6 +49,10 @@
                         </span>
                     </div>
                 </form>
+                @if (Request::is('dashboard*'))
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                </ul>
+                @else
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item px-3 text-center">
                         <a class="navbar-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page"
@@ -75,6 +79,7 @@
                         </a>
                     </li>
                 </ul>
+                @endif
                 <div class="dropdown">
                     <button type="button" class="btn round navbar-link-setting" data-bs-toggle="dropdown"
                         data-bs-display="static" aria-expanded="false">

@@ -30,7 +30,7 @@
                                     </a>
                                     <p>{{ $postingan->postingan }}</p>
                                     @if ($postingan->foto)
-                                        <div class="text-cennter">
+                                        <div class="text-center">
                                             <img src="{{ asset('upload/postingan/foto/' . $postingan->foto) }}"
                                                 class="img-fluid mb-2" alt="">
                                         </div>

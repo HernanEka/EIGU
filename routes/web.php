@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\IntegrationController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\KoneksiController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LoginController;
@@ -71,3 +73,6 @@ Route::get('/integration/github/uncheck', [IntegrationController::class, 'github
 
 Route::get('/settings/privacy',[SettingsController::class, 'privacy'])->middleware('auth');
 Route::get('/settings/security',[SettingsController::class, 'security'])->middleware('auth');
+
+Route::get('/dashboard',[AdminController::class, 'jobs'])->middleware('auth');
+Route::post('/dashboard/job/add',[JobController::class, 'addjobs'])->middleware('auth');
