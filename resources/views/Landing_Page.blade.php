@@ -112,14 +112,14 @@
                                             </label>
                                             <input type="file" id="video" name="video" accept="video/*" hidden>
                                         </div>
-                                        <div class="col round mx-2 border posting-btn p-1">
+                                        {{-- <div class="col round mx-2 border posting-btn p-1">
                                             <label for="thread">
                                                 <img src="{{ asset('src/img/thread.png') }}" width="30" alt="">
                                                 <i class="text-sm fst-normal">Thread</i>
                                             </label>
                                             <input type="file" name="thread" accept=".doc, .docx, .pdf" id="thread"
                                                 hidden>
-                                        </div>
+                                        </div> --}}
                                         <button type="submit" class="col round mx-2 border text-center btn btn-primary">
                                             Post
                                         </button>

@@ -72,6 +72,9 @@ Route::post('/integration/github', [IntegrationController::class, 'github'])->mi
 Route::get('/integration/github/uncheck', [IntegrationController::class, 'githubuncheck'])->middleware('auth');
 
 Route::get('/settings/privacy',[SettingsController::class, 'privacy'])->middleware('auth');
+Route::post('/settings/email',[SettingsController::class, 'email'])->middleware('auth');
+Route::post('/settings/phone',[SettingsController::class, 'nohp'])->middleware('auth');
+Route::post('/settings/password',[SettingsController::class, 'password'])->middleware('auth');
 Route::get('/settings/security',[SettingsController::class, 'security'])->middleware('auth');
 
 Route::get('/dashboard',[AdminController::class, 'jobs'])->middleware('auth');

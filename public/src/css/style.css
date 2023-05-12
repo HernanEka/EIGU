@@ -186,3 +186,7 @@ body {
 .posting-btn.active:hover{
     background-color: #b8b6b6;
 }
+
+.caret-hover:hover{
+    color: #9a9a9a;
+}
