@@ -55,4 +55,34 @@ class SettingsController extends Controller
     {
         return view('Settings_Security');
     }
+
+    public function privasi()
+    {
+        $user = User::find(auth()->user()->id);
+
+        $user->privasi = 'True';
+        $user->save();
+
+        return back();
+    }
+
+    public function publik()
+    {
+        $user = User::find(auth()->user()->id);
+
+        $user->privasi = 'False';
+        $user->save();
+
+        return back();
+    }
+
+    public function password2nd(Request $request)
+    {
+        $user = User::find(auth()->user()->id);
+
+        $user->password2nd = $request->password2nd;
+        $user->save();
+
+        return back();
+    }
 }
