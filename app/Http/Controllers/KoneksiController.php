@@ -10,16 +10,19 @@ class KoneksiController extends Controller
 {
     public function buatkoneksi(Request $request)
     {
+        $user = User::where('email', '=', $request->search)->first();
+
+        $check = Koneksi::all();
+
+        if ($check->where($check->where('user_id_1', '=', auth()->user()->id)->where('user_id_2', '=', $user->id))->where($check->where('user_id_2', '=', auth()->user()->id)->where('user_id_1', '=', $user->id))) {
+            return redirect('/messaging/user/' . $user->id);
+        }
+
         $koneksi = new Koneksi();
-
-        $user = User::where('email','=',$request->search)->first();
-
         $koneksi->user_id_1 = auth()->user()->id;
         $koneksi->user_id_2 = $user->id;
         $koneksi->save();
 
-        return back();
-
-
+        return redirect('/messaging/user/' . $user->id);
     }
 }
