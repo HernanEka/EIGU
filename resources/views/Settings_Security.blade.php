@@ -108,7 +108,7 @@
                                     <div class="modal-body">
                                         <div class="mb-3">
                                             <label for="Email">Your 2nd Password</label>
-                                            <input type="password" name="2ndpassword" class="form-control">
+                                            <input type="password" name="password2nd" class="form-control">
                                         </div>
                                     </div>
                                     <div class="modal-footer">
