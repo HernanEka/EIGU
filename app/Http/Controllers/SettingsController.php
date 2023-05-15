@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notifikasi;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -10,7 +11,8 @@ class SettingsController extends Controller
 {
     public function privacy()
     {
-        return view('Settings_Privacy');
+        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest();
+        return view('Settings_Privacy',compact('notif'));
     }
 
     public function email(Request $request)

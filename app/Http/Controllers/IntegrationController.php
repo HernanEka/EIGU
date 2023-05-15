@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Integration;
+use App\Models\Notifikasi;
 use Illuminate\Http\Request;
 
 class IntegrationController extends Controller
@@ -10,7 +11,8 @@ class IntegrationController extends Controller
     public function index()
     {
         $integration = Integration::where('user_id','=',auth()->user()->id)->first();
-        return view('Settings_Integration', compact('integration'));
+        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest();
+        return view('Settings_Integration', compact('integration','notif'));
     }
 
     public function dribbble(Request $request)

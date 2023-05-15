@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Models\Notifikasi;
 use Illuminate\Http\Request;
 
 class PekerjaanController extends Controller
@@ -10,6 +11,7 @@ class PekerjaanController extends Controller
     public function index()
     {
         $jobs = Job::all();
-        return view('Job',compact('jobs'));
+        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest();
+        return view('Job',compact('jobs','notif'));
     }
 }

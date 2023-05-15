@@ -27,7 +27,6 @@
 </head>
 
 <body>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-abu sticky-top">
         <div class="container">
@@ -51,35 +50,46 @@
                     </div>
                 </form>
                 @if (Request::is('dashboard*'))
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                </ul>
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    </ul>
                 @else
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li class="nav-item px-3 text-center">
-                        <a class="navbar-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page"
-                            href="/">
-                            <i class="fs-5 bi bi-house"></i><br>Home
-                        </a>
-                    </li>
-                    <li class="nav-item px-3 text-center">
-                        <a class="navbar-link {{ Request::is('network*') ? 'active' : '' }}"" aria-current="page"
-                            href="/network">
-                            <i class="fs-5 bi bi-people"></i><br>Network
-                        </a>
-                    </li>
-                    <li class="nav-item px-3 text-center">
-                        <a class="navbar-link {{ Request::is('pekerjaan*') ? 'active' : '' }}"" aria-current="page"
-                            href="/pekerjaan">
-                            <i class="fs-5 bi bi-bag"></i><br>Job
-                        </a>
-                    </li>
-                    <li class="nav-item px-3 text-center">
-                        <a class="navbar-link {{ Request::is('messaging*') ? 'active' : '' }}"" aria-current="page"
-                            href="/messaging/admin">
-                            <i class="fs-5 bi bi-send"></i><br>Messaging
-                        </a>
-                    </li>
-                </ul>
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item px-3 text-center">
+                            <a class="navbar-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page"
+                                href="/">
+                                <i class="fs-5 bi bi-house"></i><br>Home
+                            </a>
+                        </li>
+                        <li class="nav-item px-3 text-center">
+                            <a class="navbar-link {{ Request::is('network*') ? 'active' : '' }}"" aria-current="page"
+                                href="/network">
+                                <i class="fs-5 bi bi-people"></i><br>Network
+                            </a>
+                        </li>
+                        <li class="nav-item px-3 text-center">
+                            <a class="navbar-link {{ Request::is('pekerjaan*') ? 'active' : '' }}"" aria-current="page"
+                                href="/pekerjaan">
+                                <i class="fs-5 bi bi-bag"></i><br>Job
+                            </a>
+                        </li>
+                        <li class="nav-item px-3 text-center">
+                            <a class="navbar-link {{ Request::is('messaging*') ? 'active' : '' }}"" aria-current="page"
+                                href="/messaging/admin">
+                                <i class="fs-5 bi bi-send"></i><br>Messaging
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="dropdown mx-3">
+                        <i class="fs-4 bi bi-bell-fill text-primary" data-bs-toggle="dropdown" data-bs-display="static"
+                            aria-expanded="false"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-lg-end">
+                            @foreach ($notif as $notifikasi)
+                                <li><a href="{{ $notifikasi->link }}" class="dropdown-item">{{ $notifikasi->pesan }}</a></li>
+                                <li><hr></li>
+                            @endforeach
+                        </ul>
+                    </div>
                 @endif
                 <div class="dropdown">
                     <button type="button" class="btn round navbar-link-setting" data-bs-toggle="dropdown"
