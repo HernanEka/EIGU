@@ -12,11 +12,11 @@ class KoneksiController extends Controller
     {
         $user = User::where('email', '=', $request->search)->first();
 
-        $check = Koneksi::all();
+        // $check = Koneksi::all();
 
-        if ($check->where($check->where('user_id_1', '=', auth()->user()->id)->where('user_id_2', '=', $user->id))->where($check->where('user_id_2', '=', auth()->user()->id)->where('user_id_1', '=', $user->id))) {
-            return redirect('/messaging/user/' . $user->id);
-        }
+        // if ($check->where($check->where('user_id_1', '=', auth()->user()->id)->where('user_id_2', '=', $user->id))->OrWhere($check->where('user_id_2', '=', auth()->user()->id)->where('user_id_1', '=', $user->id))) {
+        //     return redirect('/messaging/user/' . $user->id);
+        // }
 
         $koneksi = new Koneksi();
         $koneksi->user_id_1 = auth()->user()->id;

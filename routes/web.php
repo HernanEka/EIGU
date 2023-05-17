@@ -78,7 +78,7 @@ Route::post('/settings/password',[SettingsController::class, 'password'])->middl
 Route::get('/settings/security',[SettingsController::class, 'security'])->middleware('auth');
 Route::post('/settings/privasi',[SettingsController::class, 'privasi'])->middleware('auth');
 Route::post('/settings/publik',[SettingsController::class, 'publik'])->middleware('auth');
-Route::post('/settings/2ndpassword',[SettingsController::class, 'password2nd'])->middleware('auth');
+Route::post('/settings/2ndpassword',[SettingsController::class, 'password2nd    '])->middleware('auth');
 
 Route::get('/dashboard',[AdminController::class, 'jobs'])->middleware('auth');
 Route::post('/dashboard/job/add',[JobController::class, 'addjobs'])->middleware('auth');
