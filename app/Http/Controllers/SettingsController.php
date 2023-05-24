@@ -55,7 +55,8 @@ class SettingsController extends Controller
 
     public function security()
     {
-        return view('Settings_Security');
+        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest()->get();
+        return view('Settings_Security',compact('notif'));
     }
 
     public function privasi()
