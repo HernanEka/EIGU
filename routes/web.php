@@ -80,6 +80,10 @@ Route::get('/settings/security',[SettingsController::class, 'security'])->middle
 Route::post('/settings/privasi',[SettingsController::class, 'privasi'])->middleware('auth');
 Route::post('/settings/publik',[SettingsController::class, 'publik'])->middleware('auth');
 Route::post('/settings/2ndpassword',[SettingsController::class, 'password2nd    '])->middleware('auth');
+Route::get('/settings/notification',[SettingsController::class, 'notification'])->middleware('auth');
+Route::post('/settings/enable-notif',[SettingsController::class, 'enable_notif'])->middleware('auth');
+Route::post('/settings/disable-notif',[SettingsController::class, 'disable_notif'])->middleware('auth');
+
 
 Route::get('/dashboard',[AdminController::class, 'jobs'])->middleware('auth');
 Route::post('/dashboard/job/add',[JobController::class, 'addjobs'])->middleware('auth');

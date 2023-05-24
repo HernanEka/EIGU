@@ -87,4 +87,31 @@ class SettingsController extends Controller
 
         return back();
     }
+
+    public function notification()
+    {
+        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest()->get();
+
+        return view('Settings_Notification',compact('notif'));
+    }
+
+    public function enable_notif()
+    {
+        $user = User::find(auth()->user()->id);
+
+        $user->notifikasi = 'True';
+        $user->save();
+
+        return back();
+    }
+
+    public function Disable_notif()
+    {
+        $user = User::find(auth()->user()->id);
+
+        $user->notifikasi = 'False';
+        $user->save();
+
+        return back();
+    }
 }

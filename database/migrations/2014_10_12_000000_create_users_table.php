@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('region')->nullable();
             $table->string('city')->nullable();
             $table->string('privasi')->default('False');
+            $table->string('notifikasi')->default('True');
             $table->string('role')->default('User');
             $table->rememberToken();
             $table->timestamps();

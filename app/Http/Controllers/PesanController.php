@@ -13,26 +13,26 @@ class PesanController extends Controller
     public function index()
     {
         $user = User::where('id', '!=', auth()->user()->id)->get();
-        $pesan = Pesan::where('pengirim_id', '=', auth()->user()->id)->where('penerima','=','Admin')->get();
+        $pesan = Pesan::where('pengirim_id', '=', auth()->user()->id)->where('penerima', '=', 'Admin')->get();
         $koneksi = Koneksi::where('user_id_1', '=', auth()->user()->id)->OrWhere('user_id_2', '=', auth()->user()->id)->get();
-        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest()->get();
-        return view('Messaging', compact('user', 'pesan', 'koneksi','notif'));
+        $notif = Notifikasi::where('user_id', '=', auth()->user()->id)->latest()->get();
+        return view('Messaging', compact('user', 'pesan', 'koneksi', 'notif'));
     }
 
     public function user($id)
     {
         $user = User::where('id', '!=', auth()->user()->id)->get();
         $pesan = Pesan::where([
-            ['penerima_id','=', auth()->user()->id],
-            ['pengirim_id','=',$id]
+            ['penerima_id', '=', auth()->user()->id],
+            ['pengirim_id', '=', $id]
         ])->OrWhere([
-            ['penerima_id','=', $id],
-            ['pengirim_id','=',auth()->user()->id]
+            ['penerima_id', '=', $id],
+            ['pengirim_id', '=', auth()->user()->id]
         ])->get();
         // return $pesan;
         $koneksi = Koneksi::where('user_id_1', '=', auth()->user()->id)->OrWhere('user_id_2', '=', auth()->user()->id)->get();
-        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest()->get();
-        return view('Messaging', compact('user', 'pesan', 'koneksi', 'id','notif'));
+        $notif = Notifikasi::where('user_id', '=', auth()->user()->id)->latest()->get();
+        return view('Messaging', compact('user', 'pesan', 'koneksi', 'id', 'notif'));
     }
 
     public function toadmin(Request $request)
@@ -59,13 +59,16 @@ class PesanController extends Controller
 
         $pesan->save();
 
-        $log = new Notifikasi();
+        $user = User::find($id);
 
-        $log->user_id = $id;
-        $log->pesan = auth()->user()->firstname.' '.auth()->user()->lastname.' Mengirimi Anda Pesan';
-        $log->link = '/messaging/user/'.auth()->user()->id;
-        $log->save();
+        if ($user->notifikasi == 'True') {
+            $log = new Notifikasi();
 
+            $log->user_id = $id;
+            $log->pesan = auth()->user()->firstname . ' ' . auth()->user()->lastname . ' Mengirimi Anda Pesan';
+            $log->link = '/messaging/user/' . auth()->user()->id;
+            $log->save();
+        }
 
         return back();
     }

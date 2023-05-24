@@ -12,7 +12,7 @@
                 <a href="#" class="btn px-5">Visibility</a>
                 <a href="#" class="btn px-5">Data Privacy</a>
                 <a href="#" class="btn px-5">Ad Data</a>
-                <a href="#" class="btn px-5">Notification</a>
+                <a href="/settings/notification" class="btn px-5">Notification</a>
             </div>
 
             <div class="row border-bottom p-4">
