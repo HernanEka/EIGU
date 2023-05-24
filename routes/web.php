@@ -85,3 +85,4 @@ Route::get('/dashboard',[AdminController::class, 'jobs'])->middleware('auth');
 Route::post('/dashboard/job/add',[JobController::class, 'addjobs'])->middleware('auth');
 
 Route::get('/search',[SearchController::class, 'index'])->middleware('auth');
+Route::get('/filter',[SearchController::class, 'filter'])->middleware('auth');
