@@ -20,7 +20,12 @@
                     </div>
 
                     <div class="bg-white round p-3" style="min-height: 200px">
-                        <div class="border p-3 round posting-btn active"><i class="bi bi-briefcase"></i> Jobs</div>
+                        <a href="/dashboard/user" class="text-decoration-none text-dark">
+                            <div class="border p-3 round posting-btn mb-3"><i class="bi bi-people"></i> Data User</div>
+                        </a>
+                        <a href="/dashboard/job" class="text-decoration-none text-dark">
+                            <div class="border p-3 round posting-btn active mb-3"><i class="bi bi-briefcase"></i> Jobs</div>
+                        </a>
                     </div>
                 </div>
 
@@ -31,7 +36,7 @@
                                 class="bi bi-pencil"></i></button>
                     </div>
                     <div class="accordion accordion-flush" id="accordionFlushExample">
-                        @foreach($jobs as $job)
+                        @foreach ($jobs as $job)
                             <div class="accordion-item border">
                                 <h2 class="accordion-header" id="flush-heading{{ $job->id }}">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -39,11 +44,14 @@
                                         aria-controls="flush-collapse{{ $job->id }}">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <img src="{{ asset('upload/job/logo/'.$job->logo) }}" alt="" width="50">
+                                                <img src="{{ asset('upload/job/logo/' . $job->logo) }}" alt=""
+                                                    width="50">
                                             </div>
                                             <div class="col">
                                                 <b>{{ $job->company }}</b>
-                                                <p class="text-sm">{{ $job->title }} <br>{{ \Carbon\Carbon::parse($job->startdate)->format('j F Y') }}  - {{ \Carbon\Carbon::parse($job->enddate  )->format('j F Y') }}</p>
+                                                <p class="text-sm">{{ $job->title }}
+                                                    <br>{{ \Carbon\Carbon::parse($job->startdate)->format('j F Y') }} -
+                                                    {{ \Carbon\Carbon::parse($job->enddate)->format('j F Y') }}</p>
                                             </div>
                                         </div>
                                     </button>

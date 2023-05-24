@@ -10,7 +10,7 @@ class NetworkController extends Controller
 {
     public function index()
     {
-        $user = User::where('id','!=',auth()->user()->id)->get();
+        $user = User::where('id','!=',auth()->user()->id)->where('role','!=','Admin')->get();
         $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest()->get();
         return view('Network', compact('user','notif'));
     }

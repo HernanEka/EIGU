@@ -85,7 +85,9 @@ Route::post('/settings/enable-notif',[SettingsController::class, 'enable_notif']
 Route::post('/settings/disable-notif',[SettingsController::class, 'disable_notif'])->middleware('auth');
 
 
-Route::get('/dashboard',[AdminController::class, 'jobs'])->middleware('auth');
+Route::get('/dashboard/job',[AdminController::class, 'jobs'])->middleware('auth');
+Route::get('/dashboard/user',[AdminController::class, 'user'])->middleware('auth');
+Route::get('/dashboard/user/delete/{id}',[AdminController::class, 'delete_user'])->middleware('auth');
 Route::post('/dashboard/job/add',[JobController::class, 'addjobs'])->middleware('auth');
 
 Route::get('/search',[SearchController::class, 'index'])->middleware('auth');

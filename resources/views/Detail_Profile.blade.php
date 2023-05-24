@@ -87,9 +87,9 @@
                                     <p><a href="#" class="text-decoration-none mb-3">5.802 Connection</a></p>
                                 </div>
                                 <div class="col text-end">
-                                    <div class="portofolio mb-3">
+                                    {{-- <div class="portofolio mb-3">
                                         <a href="/experience" class="btn btn-primary round">Portofolio acces</a>
-                                    </div>
+                                    </div> --}}
                                     <div class="shopee">
                                         <a href="#"><img src="{{ asset('src/img/shopee-logo.png') }}" width="60"
                                                 alt=""></a>
