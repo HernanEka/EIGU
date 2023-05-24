@@ -39,13 +39,13 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <form class="d-flex">
+                <form action="/search" class="d-flex">
                     <div class="input-group">
-                        <input type="text" class="form-control round" aria-label="Search">
+                        <input type="text" name="search" class="form-control round" aria-label="Search" value="{{ request('search') }}">
                         <span class="input-group-text round">
-                            <a href="#!" class="text-decoration-none nav-link navbar-link text-dark">
+                            <button type="submit" class="btn text-decoration-none nav-link navbar-link text-dark">
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                            </a>
+                            </button>
                         </span>
                     </div>
                 </form>
@@ -84,6 +84,9 @@
                             aria-expanded="false"></i>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-lg-end">
+                            @if (count($notif) == 0)
+                                <li>Tidak ada notifikasi</li>
+                            @endif
                             @foreach ($notif as $notifikasi)
                                 <li><a href="{{ $notifikasi->link }}" class="dropdown-item">{{ $notifikasi->pesan }}</a></li>
                                 <li><hr></li>

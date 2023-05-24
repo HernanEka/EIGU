@@ -13,6 +13,7 @@ use App\Http\Controllers\PesanController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\PostinganController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SignUpController;
 use Illuminate\Support\Facades\Route;
@@ -82,3 +83,5 @@ Route::post('/settings/2ndpassword',[SettingsController::class, 'password2nd    
 
 Route::get('/dashboard',[AdminController::class, 'jobs'])->middleware('auth');
 Route::post('/dashboard/job/add',[JobController::class, 'addjobs'])->middleware('auth');
+
+Route::get('/search',[SearchController::class, 'index'])->middleware('auth');

@@ -12,7 +12,7 @@ class PortofolioController extends Controller
     public function index()
     {
         $portofolio = Portofolio::where('user_id','=', auth()->user()->id)->get();
-        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest();
+        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest()->get();
         return view('Portofolio', compact('portofolio','notif'));
     }
 

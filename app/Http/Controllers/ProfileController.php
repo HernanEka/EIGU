@@ -12,7 +12,7 @@ class ProfileController extends Controller
     public function index()
     {
         $integration = Integration::where('user_id','=',auth()->user()->id)->first();
-        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest();
+        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest()->get();
         return view('Profile', compact('integration','notif'));
     }
 

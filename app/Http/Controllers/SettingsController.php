@@ -11,7 +11,7 @@ class SettingsController extends Controller
 {
     public function privacy()
     {
-        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest();
+        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest()->get();
         return view('Settings_Privacy',compact('notif'));
     }
 

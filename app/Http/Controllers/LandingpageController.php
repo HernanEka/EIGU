@@ -23,7 +23,7 @@ class LandingpageController extends Controller
     {
         $user = User::all();
         $postingan = Postingan::find($id);
-        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest();
+        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest()->get();
         return view('Detail_Postingan', compact('postingan','user','notif'));
     }
 
