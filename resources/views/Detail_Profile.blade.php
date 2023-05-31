@@ -15,7 +15,7 @@
                             <img src="{{ asset('src/img/contoh.jpg') }}" class="pics" alt="">
                         </div>
                         <div class="card-body text-center" style="padding-top: 50px">
-                            <h3 class="card-title">{{ auth()->user()->firstname.' '.auth()->user()->lastname }}</h3>
+                            <h3 class="card-title">{{ auth()->user()->firstname . ' ' . auth()->user()->lastname }}</h3>
                             <p class="card-text text-sm text-secondary">
                                 {{ '@' . substr(auth()->user()->email, 0, strrpos(auth()->user()->email, '@')) }} </p>
                             <p>Front End Developer</p>
@@ -81,8 +81,7 @@
                                         {{ $user->firstname . ' ' . $user->lastname }} <b
                                             class="text-sm fw-light text-secondary">(He/Him)</b> </h3>
                                     <p class="card-text"><b>Front End Developer</b></p>
-                                    <b
-                                        class="fw-light text-sm text-secondary">{{ $user->city . ', ' . $user->region }}</b>
+                                    <b class="fw-light text-sm text-secondary">{{ $user->city . ', ' . $user->region }}</b>
                                     <a href="#" class="text-decoration-none">Contact Information</a><br>
                                     <p><a href="#" class="text-decoration-none mb-3">5.802 Connection</a></p>
                                 </div>
@@ -98,52 +97,67 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col mx-2 p-2 border round">
-                                    <h1 class="fs-6">Role-appropriate work recommendations</h1>
-                                    <p class="text-sm text-secondary">It takes a lot of work in the IT field</p>
-                                    <a href="#" class="text-decoration-none">See more</a>
+                            @if ($user->privasi == 'False')
+                                <div class="row">
+                                    <div class="col mx-2 p-2 border round">
+                                        <h1 class="fs-6">Role-appropriate work recommendations</h1>
+                                        <p class="text-sm text-secondary">It takes a lot of work in the IT field</p>
+                                        <a href="#" class="text-decoration-none">See more</a>
+                                    </div>
+                                    <div class="col mx-2  p-2 border round">
+                                        <h1 class="fs-6">Role-appropriate work recommendations</h1>
+                                        <p class="text-sm text-secondary">It takes a lot of work in the IT field</p>
+                                        <a href="#" class="text-decoration-none">See more</a>
+                                    </div>
                                 </div>
-                                <div class="col mx-2  p-2 border round">
-                                    <h1 class="fs-6">Role-appropriate work recommendations</h1>
-                                    <p class="text-sm text-secondary">It takes a lot of work in the IT field</p>
-                                    <a href="#" class="text-decoration-none">See more</a>
+                            @else
+                                <div class="w-100 text-center">
+                                    <h1><i class="bi bi-lock"></i> This Account is Private</h1>
                                 </div>
-                            </div>
+                            @endif
 
                         </div>
                     </div>
 
                     <div class="posting bg-white p-3 round">
                         <h3 class="display-6 mb-2">Activity</h3>
-                        <div class="col border round p-3">
-                            <div class="row">
-                                <div class="col">
-                                    <h4>Judul</h4>
+                        @if ($user->privasi == 'False')
+                            <div class="col border round p-3">
+                                <div class="row">
+                                    <div class="col">
+                                        <h4>Judul</h4>
+                                    </div>
+                                    <div class="col text-end">
+                                        <i class="bi bi-pencil bg-abu p-2 round"></i>
+                                    </div>
                                 </div>
-                                <div class="col text-end">
-                                    <i class="bi bi-pencil bg-abu p-2 round"></i>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, rerum numquam quis quaerat
+                                    hic officia deleniti accusantium voluptatem similique, soluta, voluptatum architecto
+                                    dolores nihil eaque odit quas! Fugit, amet repellat.</p>
+                                <img src="{{ asset('src/img/Rectangle 96.png') }}" class="img-fluid mb-2" alt="">
+                                <div class="row text-center">
+                                    <div class="col round mx-2 border p-1">
+                                        <i class="bi bi-hand-thumbs-up text-primary"></i><i
+                                            class="text-sm fst-normal">Like</i>
+                                    </div>
+                                    <div class="col round mx-2 border p-1">
+                                        <i class="bi bi-chat-text text-primary"></i><i
+                                            class="text-sm fst-normal">Comment</i>
+                                    </div>
+                                    <div class="col round mx-2 border p-1">
+                                        <i class="bi bi-arrow-repeat text-primary"></i><i
+                                            class="text-sm fst-normal">Share</i>
+                                    </div>
+                                    <div class="col round mx-2 border p-1">
+                                        <i class="bi bi-send text-primary"></i><i class="text-sm fst-normal">Send</i>
+                                    </div>
                                 </div>
                             </div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, rerum numquam quis quaerat
-                                hic officia deleniti accusantium voluptatem similique, soluta, voluptatum architecto
-                                dolores nihil eaque odit quas! Fugit, amet repellat.</p>
-                            <img src="{{ asset('src/img/Rectangle 96.png') }}" class="img-fluid mb-2" alt="">
-                            <div class="row text-center">
-                                <div class="col round mx-2 border p-1">
-                                    <i class="bi bi-hand-thumbs-up text-primary"></i><i class="text-sm fst-normal">Like</i>
-                                </div>
-                                <div class="col round mx-2 border p-1">
-                                    <i class="bi bi-chat-text text-primary"></i><i class="text-sm fst-normal">Comment</i>
-                                </div>
-                                <div class="col round mx-2 border p-1">
-                                    <i class="bi bi-arrow-repeat text-primary"></i><i class="text-sm fst-normal">Share</i>
-                                </div>
-                                <div class="col round mx-2 border p-1">
-                                    <i class="bi bi-send text-primary"></i><i class="text-sm fst-normal">Send</i>
-                                </div>
+                        @else
+                            <div class="w-100 text-center">
+                                <h1><i class="bi bi-lock"></i> This Account is Private</h1>
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
 
