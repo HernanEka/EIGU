@@ -59,6 +59,17 @@ class PesanController extends Controller
 
         $pesan->save();
 
+        $user = User::find($id);
+
+        if ($user->notifikasi == 'True') {
+            $log = new Notifikasi();
+
+            $log->user_id = $id;
+            $log->pesan = 'Admin Mengirimi Anda Pesan';
+            $log->link = '/messaging/admin';
+            $log->save();
+        }
+
         return back();
     }
 
