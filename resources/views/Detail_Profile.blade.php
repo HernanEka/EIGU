@@ -66,10 +66,6 @@
                     <div class="card round my-profile mb-3">
                         <img src="https://images.unsplash.com/photo-1614850523011-8f49ffc73908?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fGJhbm5lciUyMGJhY2tncm91bmR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
                             class="card-img-top" alt="...">
-                        <div class="position-absolute top-0 end-0 m-3">
-                            <button class="btn bg-abu round" data-bs-toggle="modal" data-bs-target="#UpdateProfile"><i
-                                    class="bi bi-pencil"></i></button>
-                        </div>
                         <div class="position-absolute top-0 start-0 translate-middle-y"
                             style="padding-top: 300px; padding-left: 15px;">
                             <img src="{{ asset('src/img/contoh.jpg') }}" class="pics" alt="">
