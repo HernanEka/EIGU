@@ -26,6 +26,9 @@
                         <a href="/dashboard/job" class="text-decoration-none text-dark">
                             <div class="border p-3 round posting-btn active mb-3"><i class="bi bi-briefcase"></i> Jobs</div>
                         </a>
+                        <a href="/dashboard/chat" class="text-decoration-none text-dark">
+                            <div class="border p-3 round posting-btn mb-3"><i class="bi bi-chat-dots"></i> Chat</div>
+                        </a>
                     </div>
                 </div>
 

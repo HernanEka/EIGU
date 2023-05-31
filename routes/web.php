@@ -90,5 +90,9 @@ Route::get('/dashboard/user',[AdminController::class, 'user'])->middleware('auth
 Route::get('/dashboard/user/delete/{id}',[AdminController::class, 'delete_user'])->middleware('auth');
 Route::post('/dashboard/job/add',[JobController::class, 'addjobs'])->middleware('auth');
 
+Route::get('/dashboard/chat',[AdminController::class, 'chat'])->middleware('auth');
+Route::get('/dashboard/chat/{id}',[AdminController::class, 'chat_detail'])->middleware('auth');
+Route::post('/admin/reply/{id}',[PesanController::class, 'fromadmin'])->middleware('auth');
+
 Route::get('/search',[SearchController::class, 'index'])->middleware('auth');
 Route::get('/filter',[SearchController::class, 'filter'])->middleware('auth');

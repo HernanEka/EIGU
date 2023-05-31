@@ -48,6 +48,20 @@ class PesanController extends Controller
         return back();
     }
 
+    public function fromadmin(Request $request,$id)
+    {
+        $pesan = new Pesan();
+
+        $pesan->pengirim_id = $id;
+        $pesan->penerima_id = $id;
+        $pesan->penerima = 'Admin';
+        $pesan->isi = $request->chat;
+
+        $pesan->save();
+
+        return back();
+    }
+
     public function touser(Request $request, $id)
     {
 

@@ -120,7 +120,7 @@
                             @if (Request::is('messaging/admin'))
                                 <div class="chat-box p-4 overflow-auto">
                                     @foreach ($pesan as $data_pesan)
-                                        @if ($data_pesan->penerima == 'User')
+                                        @if ($data_pesan->penerima_id == auth()->user()->id)
                                             <div class="row mb-2">
                                                 <div class="col-md-1">
                                                     <img src="{{ asset('src/img/mail.png') }}" alt=""
@@ -128,13 +128,11 @@
                                                 </div>
                                                 <div class="col">
                                                     <h6 class="fw-bold">For Help</h6>
-                                                    <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                        elit.
-                                                        Dignissimos, obcaecati.</p>
+                                                    <p class="text-sm">{{ $data_pesan->isi }}.</p>
                                                 </div>
                                             </div>
                                         @endif
-                                        @if ($data_pesan->penerima == 'Admin')
+                                        @if (!$data_pesan->penerima_id)
                                             <div class="row">
                                                 <div class="col text-end">
                                                     <h6 class="fw-bold">
@@ -183,19 +181,20 @@
                             @if (Request::is('messaging/user*'))
                                 <div class="chat-box p-4 overflow-auto">
                                     @foreach ($pesan as $data_pesan)
-                                    @if ($data_pesan->pengirim_id == $id)
+                                        @if ($data_pesan->pengirim_id == $id)
                                             @foreach ($user as $users)
                                                 @if ($users->id == $data_pesan->pengirim_id)
-                                                <div class="row mb-2">
-                                                    <div class="col-md-1">
-                                                        <img src="{{ asset('src/img/contoh.jpg') }}" alt=""
-                                                            width="40" class="chat-icon">
+                                                    <div class="row mb-2">
+                                                        <div class="col-md-1">
+                                                            <img src="{{ asset('src/img/contoh.jpg') }}" alt=""
+                                                                width="40" class="chat-icon">
+                                                        </div>
+                                                        <div class="col">
+                                                            <h6 class="fw-bold">
+                                                                {{ $users->firstname . ' ' . $users->lastname }}</h6>
+                                                            <p class="text-sm">{{ $data_pesan->isi }}</p>
+                                                        </div>
                                                     </div>
-                                                    <div class="col">
-                                                        <h6 class="fw-bold">{{ $users->firstname.' '.$users->lastname }}</h6>
-                                                        <p class="text-sm">{{ $data_pesan->isi }}</p>
-                                                    </div>
-                                                </div>
                                                 @endif
                                             @endforeach
                                         @elseif ($data_pesan->pengirim_id == auth()->user()->id)
