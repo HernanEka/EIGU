@@ -11,7 +11,7 @@ class PekerjaanController extends Controller
     public function index()
     {
         $jobs = Job::all();
-        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest()->get();
+        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->where('read','=','False')->latest()->get();
         return view('Job',compact('jobs','notif'));
     }
 }

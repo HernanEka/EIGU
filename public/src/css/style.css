@@ -190,3 +190,7 @@ body {
 .caret-hover:hover{
     color: #9a9a9a;
 }
+
+.notif{
+    font-size: 10px;
+}

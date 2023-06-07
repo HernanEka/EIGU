@@ -15,7 +15,7 @@ class PesanController extends Controller
         $user = User::where('id', '!=', auth()->user()->id)->get();
         $pesan = Pesan::where('pengirim_id', '=', auth()->user()->id)->where('penerima', '=', 'Admin')->get();
         $koneksi = Koneksi::where('user_id_1', '=', auth()->user()->id)->OrWhere('user_id_2', '=', auth()->user()->id)->get();
-        $notif = Notifikasi::where('user_id', '=', auth()->user()->id)->latest()->get();
+        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->where('read','=','False')->latest()->get();
         return view('Messaging', compact('user', 'pesan', 'koneksi', 'notif'));
     }
 
@@ -31,7 +31,7 @@ class PesanController extends Controller
         ])->get();
         // return $pesan;
         $koneksi = Koneksi::where('user_id_1', '=', auth()->user()->id)->OrWhere('user_id_2', '=', auth()->user()->id)->get();
-        $notif = Notifikasi::where('user_id', '=', auth()->user()->id)->latest()->get();
+        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->where('read','=','False')->latest()->get();
         return view('Messaging', compact('user', 'pesan', 'koneksi', 'id', 'notif'));
     }
 

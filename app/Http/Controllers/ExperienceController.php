@@ -11,7 +11,7 @@ class ExperienceController extends Controller
     public function index()
     {
         $experience = Experience::where('user_id','=',auth()->user()->id)->get();
-        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->latest()->get();
+        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->where('read','=','False')->latest()->get();
         return view('Experience', compact('experience','notif'));
     }
 

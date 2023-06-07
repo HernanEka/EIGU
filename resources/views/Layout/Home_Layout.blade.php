@@ -41,7 +41,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <form action="/search" class="d-flex">
                     <div class="input-group">
-                        <input type="text" name="search" class="form-control round" aria-label="Search" value="{{ request('search') }}">
+                        <input type="text" name="search" class="form-control round" aria-label="Search"
+                            value="{{ request('search') }}">
                         <span class="input-group-text round">
                             <button type="submit" class="btn text-decoration-none nav-link navbar-link text-dark">
                                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -81,15 +82,23 @@
                     </ul>
                     <div class="dropdown mx-3">
                         <i class="fs-4 bi bi-bell-fill text-primary" data-bs-toggle="dropdown" data-bs-display="static"
-                            aria-expanded="false"></i>
+                            aria-expanded="false">
+                            @if (count($notif) > 0)
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger notif">+{{ count($notif) }}</span>
+                            @endif
+                        </i>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-lg-end">
                             @if (count($notif) == 0)
                                 <li>Tidak ada notifikasi</li>
                             @endif
                             @foreach ($notif as $notifikasi)
-                                <li><a href="{{ $notifikasi->link }}" class="dropdown-item">{{ $notifikasi->pesan }}</a></li>
-                                <li><hr></li>
+                                <li><a href="/notifikasi/{{ $notifikasi->id }}" class="dropdown-item">{{ $notifikasi->pesan }}</a>
+                                </li>
+                                <li>
+                                    <hr>
+                                </li>
                             @endforeach
                         </ul>
                     </div>

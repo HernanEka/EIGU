@@ -96,3 +96,6 @@ Route::post('/admin/reply/{id}',[PesanController::class, 'fromadmin'])->middlewa
 
 Route::get('/search',[SearchController::class, 'index'])->middleware('auth');
 Route::get('/filter',[SearchController::class, 'filter'])->middleware('auth');
+
+
+Route::get('/notifikasi/{id}', [LandingpageController::class, 'notifikasi']);

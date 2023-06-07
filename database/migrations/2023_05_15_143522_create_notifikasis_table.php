@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->text('pesan');
             $table->text('link');
+            $table->string('read')->default('False');
             $table->timestamps();
         });
     }

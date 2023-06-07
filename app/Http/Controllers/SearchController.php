@@ -11,7 +11,7 @@ class SearchController extends Controller
 {
     public function index()
     {
-        $notif = Notifikasi::where('user_id', '=', auth()->user()->id)->latest()->get();
+        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->where('read','=','False')->latest()->get();
         $user = User::where('firstname', 'like', '%' . request('search') . '%')->orWhere('lastname', 'like', '%' . request('search'))->latest()->paginate(3);
         $job = Job::where('title', 'like', '%' . request('search') . '%')->orWhere('company', 'like', '%' . request('search') . '%')->latest()->paginate(3);
 
@@ -20,7 +20,7 @@ class SearchController extends Controller
 
     public function filter()
     {
-        $notif = Notifikasi::where('user_id', '=', auth()->user()->id)->latest()->get();
+        $notif = Notifikasi::where('user_id','=',auth()->user()->id)->where('read','=','False')->latest()->get();
 
         if (request('user')) {
             $user = User::where('firstname', 'like', '%' . request('search') . '%')->orWhere('lastname', 'like', '%' . request('search'))->latest()->get();
